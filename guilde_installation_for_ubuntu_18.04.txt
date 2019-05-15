@@ -18,7 +18,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo npm install -g less less-plugin-clean-css
 sudo apt-get install node-less
 STEP 5
-sudo apt-get install python-software-properties
+sudo apt-get install software-properties-common
 sudo vim /etc/apt/sources.list.d/pgdg.list
 add a line for the repository
 deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
@@ -86,8 +86,15 @@ addons_path = /opt/odoo/addons,/opt/odoo/odoo/addons
 sudo chown odoo: /etc/odoo.conf
 STEP 12
 sudo apt-get -f install
+
 sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
+
+# wkhtmltox has dependency on libpng12. So downlaod it and install it as well.
+sudo wget http://security.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1.1_amd64.deb
+sudo dpkg -i libpng12-0_1.2.54-1ubuntu1.1_amd64.deb
 sudo dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
+
+
 sudo cp /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
 sudo cp /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
 STEP 13
